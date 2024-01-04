@@ -57,41 +57,45 @@ function runChatWidgetScript() {
     // Function to create and show the form
     function createForm() {
         // Create a form element with Bootstrap classes
-        var form = document.createElement("form");
-        form.innerHTML = `
+        var dpform = document.createElement("dpform");
+        dpform.innerHTML = `
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Chat with Us</h3>
       </div>
       <div class="form-group">
         <label for="firstName">First Name:</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" required>
+        <input type="text" class="form-control" id="dpfirstName" name="firstName" required>
       </div>
       <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" required>
+        <input type="text" class="form-control" id="dplastName" name="lastName" required>
       </div>
       <div class="form-group">
         <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Format: (123) 456-7890" required>
+        <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" placeholder="Format: (123) 456-7890" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" id="dpmessage" name="message" required>
       </div>
       <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="allowTexting">
+        <input type="checkbox" class="form-check-input" id="dpallowTexting">
         <label class="form-check-label" for="allowTexting">Allow Texting</label>
       </div>
-      <button type="submit" class="btn btn-success" id="saveButton" disabled>Save</button>
+      <button type="submit" class="btn btn-success" id="dpsaveButton" disabled>Save</button>
     `;
 
         // Style the form
-        form.style.position = "fixed";
-        form.style.bottom = "50px";
-        form.style.right = "50px";
-        form.style.padding = "20px";
-        form.style.backgroundColor = "#fff";
-        form.style.border = "1px solid #ccc";
-        form.style.zIndex = "1000";
+        dpform.style.position = "fixed";
+        dpform.style.bottom = "50px";
+        dpform.style.right = "50px";
+        dpform.style.padding = "20px";
+        dpform.style.backgroundColor = "#fff";
+        dpform.style.border = "1px solid #ccc";
+        dpform.style.zIndex = "1000";
 
         // Append the form to the body
-        document.body.appendChild(form);
+        document.body.appendChild(dpform);
 
         // Enable/disable Save button based on checkbox state
         var saveButton = document.getElementById("saveButton");
@@ -108,21 +112,22 @@ function runChatWidgetScript() {
         });
 
         // Handle form submission
-        form.addEventListener("submit", function (event) {
+        dpform.addEventListener("submit", function (event) {
             event.preventDefault();
 
             // Check if the form is valid
-            if (form.checkValidity()) {
+            if (dpform.checkValidity()) {
                 // Make an API call with form details
                 var formData = {
-                    firstName: document.getElementById("firstName").value,
-                    lastName: document.getElementById("lastName").value,
-                    phoneNumber: document.getElementById("phoneNumber").value.replace(/\D/g, ''), // Remove non-digits
-                    allowTexting: document.getElementById("allowTexting").checked
+                    firstName: document.getElementById("dpfirstName").value,
+                    lastName: document.getElementById("dplastName").value,
+                    message: document.getElementById("dpmessage").value,
+                    phoneNumber: document.getElementById("dpphoneNumber").value.replace(/\D/g, ''), // Remove non-digits
+                    allowTexting: document.getElementById("dpallowTexting").checked
                 };
 
                 // Replace the following URL with your actual API endpoint
-                var apiUrl = "https://your-api-endpoint.com/saveFormData/"+dpStoreId;
+                var apiUrl = "api/public/intiate-chat-by-3rd-party";
 
                 // Make the API call using fetch
                 fetch(apiUrl, {
@@ -143,7 +148,7 @@ function runChatWidgetScript() {
                     });
 
                 // Remove the form after submission
-                form.remove();
+                dpform.remove();
             } else {
                 // If the form is invalid, you can handle it accordingly
                 console.log("Form is not valid");
