@@ -75,8 +75,8 @@ function runChatWidgetScript() {
         <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" placeholder="Format: (123) 456-7890" required>
       </div>
       <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" id="dpmessage" name="message" required>
+        <label for="lastName">Message:</label>
+        <textarea class="form-control" id="dpmessage" name="message" required rows="3"/>
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="dpallowTexting">
