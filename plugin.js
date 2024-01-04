@@ -98,15 +98,15 @@ function runChatWidgetScript() {
         document.body.appendChild(dpform);
 
         // Enable/disable Save button based on checkbox state
-        var saveButton = document.getElementById("saveButton");
-        var allowTextingCheckbox = document.getElementById("allowTexting");
+        var saveButton = document.getElementById("dpsaveButton");
+        var allowTextingCheckbox = document.getElementById("dpallowTexting");
 
         allowTextingCheckbox.addEventListener("change", function () {
             saveButton.disabled = !allowTextingCheckbox.checked;
         });
 
         // Apply input masking to the phone number field
-        $("#phoneNumber").inputmask({
+        $("#dpphoneNumber").inputmask({
             mask: "(999) 999-9999",
             placeholder: " ",
         });
