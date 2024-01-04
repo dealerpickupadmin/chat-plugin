@@ -57,7 +57,7 @@ function runChatWidgetScript() {
     // Function to create and show the form
     function createForm() {
         // Create a form element with Bootstrap classes
-        var dpform = document.createElement("dpform");
+        var dpform = document.createElement("form");
         dpform.innerHTML = `
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Chat with Us</h3>
