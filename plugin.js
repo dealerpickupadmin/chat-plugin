@@ -76,7 +76,7 @@ function runChatWidgetScript() {
       </div>
       <div class="form-group">
         <label for="lastName">Message:</label>
-        <textarea class="form-control" id="dpmessage" name="message" required rows="3"/>
+        <textarea class="form-control" id="dpmessage" name="message" required rows="3"></textarea>
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="dpallowTexting">
