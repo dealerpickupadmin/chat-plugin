@@ -83,6 +83,32 @@ function runChatWidgetScript() {
         <label class="form-check-label" for="allowTexting">Allow Texting</label>
       </div>
       <button type="submit" class="btn btn-success" id="dpsaveButton" disabled>Save</button>
+
+      <!-- Spinner -->
+      <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+          <span class="sr-only">Loading...</span>
+      </div>
+
+      <!-- Confirmation Modal -->
+      <div class="modal" tabindex="-1" role="dialog" id="confirmationModal">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Confirmation</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      Your message has been sent successfully.
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     `;
 
         // Style the form
@@ -115,6 +141,9 @@ function runChatWidgetScript() {
         dpform.addEventListener("submit", function (event) {
             event.preventDefault();
 
+             // Show spinner during API call
+             document.getElementById("spinner").style.display = "block";
+
             // Check if the form is valid
             if (dpform.checkValidity()) {
                 // Make an API call with form details
@@ -138,15 +167,23 @@ function runChatWidgetScript() {
                     },
                     body: JSON.stringify(formData)
                 })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log("API response:", data);
-                        // You can add additional handling based on the API response
-                    })
-                    .catch(error => {
-                        console.error("Error:", error);
-                        // Handle errors here
-                    });
+                .then(response => {
+                  // Hide spinner after the API call
+                  document.getElementById("spinner").style.display = "none";
+                  return response.json();
+              })
+              .then(data => {
+                  console.log("API response:", data);
+
+                  // Show confirmation modal on success
+                  if (data && data.status === "success") {
+                      $('#confirmationModal').modal('show');
+                  }
+              })
+              .catch(error => {
+                  console.error("Error:", error);
+                  // Handle errors here
+              });
 
                 // Remove the form after submission
                 dpform.remove();
