@@ -44,7 +44,7 @@ inputMaskScript.onload = checkDependencies;
 function runChatWidgetScript() {
     // Create a button element with an icon
     var button = document.createElement("button");
-    button.innerHTML = '<i class="fas fa-comment"></i> Chat With Us'; // Using Font Awesome icon for demonstration
+    button.innerHTML = '<i class="fas fa-comment"></i> Text Us'; // Using Font Awesome icon for demonstration
     button.classList.add("btn", "btn-primary", "btn-icon");
     button.style.position = "fixed";
     button.style.bottom = "20px";
@@ -59,8 +59,9 @@ function runChatWidgetScript() {
         // Create a form element with Bootstrap classes
         var dpform = document.createElement("form");
         dpform.innerHTML = `
+        <div style="width:350px;maxWidth:350px;">
       <div class="form-header">
-        <h3><i class="fas fa-comment"></i> Chat with Us</h3>
+        <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
       <div class="form-group">
         <label for="firstName">First Name:</label>
@@ -81,9 +82,14 @@ function runChatWidgetScript() {
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="dpallowTexting">
         <label class="form-check-label" for="allowTexting">Allow Texting</label>
+        <p class="fs-6 text-wrap pt-0 text-warning"><i class="fas fa-solid fa-exclamation"> note: </i>  <span id="warningText"></span></p>
+        
       </div>
-      <button type="submit" class="btn btn-success" id="dpsaveButton" disabled>Save</button>
-
+      
+      <div >
+      <button type="submit" class="btn btn-success float-left" id="dpsaveButton" disabled>Send</button>
+      <button type="button" class="btn btn-warning float-right" id="dpcancelButton" >Cancel</button>
+</div>
       <!-- Spinner -->
       <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
           <span class="sr-only">Loading...</span>
@@ -108,7 +114,7 @@ function runChatWidgetScript() {
               </div>
           </div>
       </div>
-
+</div>
     `;
 
         // Style the form
@@ -132,11 +138,19 @@ function runChatWidgetScript() {
         });
 
         // Apply input masking to the phone number field
-        $("#dpphoneNumber").inputmask({
-            mask: "(999) 999-9999",
-            placeholder: " ",
-        });
+        
+        function cancelForm(){
+          dpform.remove();
+        }
+        document.getElementById("dpcancelButton").addEventListener("click",cancelForm);
 
+        var warning = 'By checking this box, I agree to receive text messages from ' +storeName+ '. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for more information. View our terms and privacy policy on our website <a href="'+privacyPolicyLink+'" target="_blank">privacy policy</a>.';
+        document.getElementById("warningText").innerHTML = warning;
+
+        $("#dpphoneNumber").inputmask({
+          mask: "(999) 999-9999",
+          placeholder: " ",
+      });
         // Handle form submission
         dpform.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -186,7 +200,7 @@ function runChatWidgetScript() {
               });
 
                 // Remove the form after submission
-                dpform.remove();
+               // dpform.remove();
             } else {
                 // If the form is invalid, you can handle it accordingly
                 console.log("Form is not valid");
@@ -196,6 +210,7 @@ function runChatWidgetScript() {
 
     // Attach the createForm function to the button click event
     button.addEventListener("click", createForm);
+   
 }
 
 // ... (rest of your script)
