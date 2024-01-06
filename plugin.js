@@ -73,7 +73,7 @@ function runChatWidgetScript() {
       </div>
       <div class="form-group">
         <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" placeholder="Format: (123) 456-7890" required>
+        <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" placeholder="" required>
       </div>
       <div class="form-group">
         <label for="lastName">Message:</label>
@@ -82,7 +82,7 @@ function runChatWidgetScript() {
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="dpallowTexting">
         <label class="form-check-label" for="allowTexting">Allow Texting</label>
-        <p class="fs-6 text-wrap pt-0 text-warning"><i class="fas fa-solid fa-exclamation"> note: </i>  <span id="warningText"></span></p>
+        <p class="small text-wrap pt-0" id="warningText"></p>
         
       </div>
       
@@ -144,7 +144,7 @@ function runChatWidgetScript() {
         }
         document.getElementById("dpcancelButton").addEventListener("click",cancelForm);
 
-        var warning = 'By checking this box, I agree to receive text messages from ' +storeName+ '. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for more information. View our terms and privacy policy on our website <a href="'+privacyPolicyLink+'" target="_blank">privacy policy</a>.';
+        var warning = 'By checking this box, I agree to receive text messages from ' +storeName+ '. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for more information. View our <a href="'+privacyPolicyLink+'" target="_blank">terms & privacy policy</a>.';
         document.getElementById("warningText").innerHTML = warning;
 
         $("#dpphoneNumber").inputmask({
