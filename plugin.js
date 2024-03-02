@@ -167,11 +167,12 @@ function runChatWidgetScript() {
                     message: document.getElementById("dpmessage").value,
                     phoneNumber: document.getElementById("dpphoneNumber").value.replace(/\D/g, ''), // Remove non-digits
                     allowTexting: document.getElementById("dpallowTexting").checked,
-                    storeKey:dpStoreId
+                    storeId:dpStoreId,
+                    enterpriseId:dpEnterpriseId
                 };
 
                 // Replace the following URL with your actual API endpoint
-                var apiUrl = "https://dp-api.azurewebsites.net/api/public/intiate-chat-by-3rd-party";
+                var apiUrl = "https://dp2-core-dev-api.azurewebsites.net/api/public/intiate-chat-by-3rd-party";
 
                 // Make the API call using fetch
                 fetch(apiUrl, {
