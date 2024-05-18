@@ -143,6 +143,7 @@ function runChatWidgetScript() {
           dpform.remove();
         }
         document.getElementById("dpcancelButton").addEventListener("click",cancelForm);
+        document.getElementById("dpsaveButton").addEventListener("click",sendCustMsg);
 
         var warning = 'By checking this box, I agree to receive text messages from ' +storeName+ '. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for more information. View our <a href="'+privacyPolicyLink+'" target="_blank">terms & privacy policy</a>.';
         document.getElementById("warningText").innerHTML = warning;
@@ -152,7 +153,8 @@ function runChatWidgetScript() {
           placeholder: " ",
       });
         // Handle form submission
-        dpform.addEventListener("submit", function (event) {
+        //dpform.addEventListener("submit", function (event) 
+        function sendCustMsg(){
             event.preventDefault();
 
              // Show spinner during API call
@@ -191,7 +193,7 @@ function runChatWidgetScript() {
                   console.log("API response:", data);
 
                   // Show confirmation modal on success
-                  if (data && data.status === "success") {
+                  if (data && data === true) {
                       $('#confirmationModal').modal('show');
                   }
               })
@@ -206,7 +208,7 @@ function runChatWidgetScript() {
                 // If the form is invalid, you can handle it accordingly
                 console.log("Form is not valid");
             }
-        });
+        };
     }
 
     // Attach the createForm function to the button click event
