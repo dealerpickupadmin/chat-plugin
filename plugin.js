@@ -25,6 +25,18 @@ inputMaskScript.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5
 inputMaskScript.crossOrigin = "anonymous";
 document.head.appendChild(inputMaskScript);
 
+// Include jQuery InputMask CDN link
+var popper = document.createElement("script");
+popper.src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js";
+popper.crossOrigin = "anonymous";
+document.head.appendChild(popper);
+
+// Include jQuery InputMask CDN link
+var bootjs = document.createElement("script");
+bootjs.src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js";
+bootjs.crossOrigin = "anonymous";
+document.head.appendChild(bootjs);
+
 // Wait for all scripts and stylesheets to load
 var dependenciesLoaded = 0;
 
@@ -40,6 +52,8 @@ bootstrapLink.onload = checkDependencies;
 fontAwesomeLink.onload = checkDependencies;
 jqueryScript.onload = checkDependencies;
 inputMaskScript.onload = checkDependencies;
+popper.onload = checkDependencies;
+bootjs.onload=checkDependencies;
 
 function runChatWidgetScript() {
     // Create a button element with an icon
@@ -59,24 +73,43 @@ function runChatWidgetScript() {
         // Create a form element with Bootstrap classes
         var dpform = document.createElement("form");
         dpform.innerHTML = `
-        <div style="width:350px;maxWidth:350px;">
+        <div style="width:450px;maxWidth:450px;">
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
-      <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" class="form-control" id="dpfirstName" name="firstName" required>
+      <div class="form-group row">
+      <label for="firstName" class="col-sm-4 col-form-label">* First Name:</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="dpfirstName" name="firstName" required>
       </div>
-      <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" id="dplastName" name="lastName" required>
+  </div>
+  <div class="form-group row">
+      <label for="lastName" class="col-sm-4 col-form-label">* Last Name:</label>
+      <div class="col-sm-8">
+          <input type="text" class="form-control" id="dplastName" name="lastName" required>
       </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" placeholder="" required>
+  </div>
+  <div class="form-group row">
+      <label for="phoneNumber" class="col-sm-4 col-form-label">* Phone Number:</label>
+      <div class="col-sm-8">
+          <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" required>
       </div>
+  </div>
+  <div class="form-group row">
+      <label for="departmentSelect" class="col-sm-4 col-form-label">* Department:</label>
+      <div class="col-sm-8">
+          <select class="form-control" id="departmentSelect" required>
+              <option value="" disabled selected>Select a department</option>
+              <!-- Options will be populated by JavaScript -->
+          </select>
+          <div class="invalid-feedback">
+              Please select a department.
+          </div>
+      </div>
+  </div>
+      
       <div class="form-group">
-        <label for="lastName">Message:</label>
+        <label for="lastName">* Message:</label>
         <textarea class="form-control" id="dpmessage" name="message" required rows="3"></textarea>
       </div>
       <div class="form-group form-check">
@@ -94,7 +127,7 @@ function runChatWidgetScript() {
       <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
           <span class="sr-only">Loading...</span>
       </div>
-
+     
       <!-- Confirmation Modal -->
       <div class="modal" tabindex="-1" role="dialog" id="confirmationModal">
           <div class="modal-dialog" role="document">
@@ -137,6 +170,31 @@ function runChatWidgetScript() {
             saveButton.disabled = !allowTextingCheckbox.checked;
         });
 
+        var select = document.getElementById("departmentSelect");
+
+        departmentCodes.forEach(function(dept) {
+            var option = document.createElement("option");
+            option.value = dept;
+            option.textContent = dept.charAt(0).toUpperCase() + dept.slice(1);
+            select.appendChild(option);
+        });
+
+        // To enable Bootstrap's custom validation feedback
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
         // Apply input masking to the phone number field
         
         function cancelForm(){
@@ -155,7 +213,8 @@ function runChatWidgetScript() {
         // Handle form submission
         //dpform.addEventListener("submit", function (event) 
         function sendCustMsg(){
-            event.preventDefault();
+
+            
 
              // Show spinner during API call
              document.getElementById("spinner").style.display = "block";
@@ -206,7 +265,7 @@ function runChatWidgetScript() {
                // dpform.remove();
             } else {
                 // If the form is invalid, you can handle it accordingly
-                console.log("Form is not valid");
+                alert("Please enter all fields");
             }
         };
     }
