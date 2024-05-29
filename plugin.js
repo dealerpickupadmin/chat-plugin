@@ -10,7 +10,7 @@
 // Include Bootstrap and Font Awesome CDN links
 var bootstrapLink = document.createElement("link");
 bootstrapLink.rel = "stylesheet";
-bootstrapLink.href = "https://dealerpickupadmin.github.io/chat-plugin/dp-plugin.css";
+bootstrapLink.href = "~/dp-plugin.css";
 bootstrapLink.crossOrigin = "anonymous";
 document.head.appendChild(bootstrapLink);
 
@@ -124,18 +124,18 @@ function runChatWidgetScript() {
       </div>
   </div>
       
-      <div class="form-group">
+      <div class="dp-form-group">
         <label for="lastName">* Message:</label>
-        <textarea class="form-control" id="dpmessage" name="message" required rows="3"></textarea>
+        <textarea class="dp-form-control" id="dpmessage" name="message" required rows="3"></textarea>
       </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="dpallowTexting">
-        <label class="form-check-label" for="allowTexting">Allow Texting</label>
+      <div class="dp-form-group form-check">
+        <input type="checkbox" class="dp-form-check-input" id="dpallowTexting">
+        <label class="dp-form-check-label" for="allowTexting">Allow Texting</label>
         <p class="small text-wrap pt-0" id="warningText"></p>
         
       </div>
       
-      <div class="col-sm-12">
+      <div class="dp-col-sm-12">
       <button type="submit" class="btn btn-success float-left" id="dpsaveButton" disabled>Send</button>
       <button type="button" class="btn btn-warning float-right" id="dpcancelButton" >Cancel</button>
 </div>
