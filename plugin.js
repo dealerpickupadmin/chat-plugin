@@ -10,7 +10,7 @@
 // Include Bootstrap and Font Awesome CDN links
 var bootstrapLink = document.createElement("link");
 bootstrapLink.rel = "stylesheet";
-bootstrapLink.href = "dp-plugin.css";
+bootstrapLink.href = "./dp-plugin.css";
 bootstrapLink.crossOrigin = "anonymous";
 document.head.appendChild(bootstrapLink);
 
