@@ -1,9 +1,16 @@
 // chat-widget.js
 
 // Include Bootstrap and Font Awesome CDN links
+// var bootstrapLink = document.createElement("link");
+// bootstrapLink.rel = "stylesheet";
+// bootstrapLink.href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+// bootstrapLink.crossOrigin = "anonymous";
+// document.head.appendChild(bootstrapLink);
+
+// Include Bootstrap and Font Awesome CDN links
 var bootstrapLink = document.createElement("link");
 bootstrapLink.rel = "stylesheet";
-bootstrapLink.href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+bootstrapLink.href = "dp-plugin.css";
 bootstrapLink.crossOrigin = "anonymous";
 document.head.appendChild(bootstrapLink);
 
@@ -86,26 +93,26 @@ function runChatWidgetScript() {
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
-      <div class="form-group row">
-      <label for="firstName" class="col-sm-4 col-form-label">* First Name:</label>
-      <div class="col-sm-8">
-          <input type="text" class="form-control" id="dpfirstName" name="firstName" required>
+      <div class="dp-form-group dp-row">
+      <label for="firstName" class="dp-col-sm-4 dp-col-form-label">* First Name:</label>
+      <div class="dp-col-sm-8">
+          <input type="text" class="dp-form-control" id="dpfirstName" name="firstName" required>
       </div>
   </div>
-  <div class="form-group row">
-      <label for="lastName" class="col-sm-4 col-form-label">* Last Name:</label>
-      <div class="col-sm-8">
-          <input type="text" class="form-control" id="dplastName" name="lastName" required>
+  <div class="dp-form-group dp-row">
+      <label for="lastName" class="dp-col-sm-4 dp-col-form-label">* Last Name:</label>
+      <div class="dp-col-sm-8">
+          <input type="text" class="dp-form-control" id="dplastName" name="lastName" required>
       </div>
   </div>
-  <div class="form-group row">
-      <label for="phoneNumber" class="col-sm-4 col-form-label">* Phone Number:</label>
-      <div class="col-sm-8">
-          <input type="tel" class="form-control" id="dpphoneNumber" name="phoneNumber" required>
+  <div class="dp-form-group row">
+      <label for="phoneNumber" class="dp-col-sm-4 dp-col-form-label">* Phone Number:</label>
+      <div class="dp-col-sm-8">
+          <input type="tel" class="dp-form-control" id="dpphoneNumber" name="phoneNumber" required>
       </div>
   </div>
-  <div class="form-group row">
-      <label for="departmentSelect" class="col-sm-4 col-form-label">* Department:</label>
+  <div class="dp-form-group row">
+      <label for="departmentSelect" class="dp-col-sm-4 col-form-label">* Department:</label>
       <div class="col-sm-8">
           <select class="form-control" id="departmentSelect" required>
               <option value="" disabled selected>Select a department</option>
