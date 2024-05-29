@@ -105,15 +105,15 @@ function runChatWidgetScript() {
           <input type="text" class="dp-form-control" id="dplastName" name="lastName" required>
       </div>
   </div>
-  <div class="dp-form-group row">
+  <div class="dp-form-group dp-row">
       <label for="phoneNumber" class="dp-col-sm-4 dp-col-form-label">* Phone Number:</label>
       <div class="dp-col-sm-8">
           <input type="tel" class="dp-form-control" id="dpphoneNumber" name="phoneNumber" required>
       </div>
   </div>
-  <div class="dp-form-group row">
+  <div class="dp-form-group dp-row">
       <label for="departmentSelect" class="dp-col-sm-4 col-form-label">* Department:</label>
-      <div class="col-sm-8">
+      <div class="dp-col-sm-8">
           <select class="form-control" id="departmentSelect" required>
               <option value="" disabled selected>Select a department</option>
               <!-- Options will be populated by JavaScript -->
@@ -128,7 +128,7 @@ function runChatWidgetScript() {
         <label for="lastName">* Message:</label>
         <textarea class="dp-form-control" id="dpmessage" name="message" required rows="3"></textarea>
       </div>
-      <div class="dp-form-group form-check">
+      <div class="dp-form-group dp-form-check">
         <input type="checkbox" class="dp-form-check-input" id="dpallowTexting">
         <label class="dp-form-check-label" for="allowTexting">Allow Texting</label>
         <p class="small text-wrap pt-0" id="warningText"></p>
@@ -136,7 +136,7 @@ function runChatWidgetScript() {
       </div>
       
       <div class="dp-col-sm-12">
-      <button type="submit" class="btn btn-success float-left" id="dpsaveButton" disabled>Send</button>
+      <button type="submit" class="btn btn-dp-success float-left" id="dpsaveButton" disabled>Send</button>
       <button type="button" class="btn btn-warning float-right" id="dpcancelButton" >Cancel</button>
 </div>
       <!-- Spinner -->
