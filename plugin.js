@@ -136,8 +136,8 @@ function runChatWidgetScript() {
       </div>
       
       <div class="dp-col-sm-12">
-      <button type="submit" class="btn btn-dp-success float-left" id="dpsaveButton" disabled>Send</button>
-      <button type="button" class="btn btn-warning float-right" id="dpcancelButton" >Cancel</button>
+      <button type="submit" class="btn btn-dp-success float-right" id="dpsaveButton" disabled>Send</button>
+      <button type="button" class="btn btn-warning float-left" id="dpcancelButton" >Cancel</button>
 </div>
       <!-- Spinner -->
       <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
