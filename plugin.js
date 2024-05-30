@@ -268,7 +268,7 @@ event.preventDefault();
         };
 
         // Replace the following URL with your actual API endpoint
-        var apiUrl = "https://localhost:7188/api/public/intiate-chat-by-3rd-party";
+        var apiUrl = "https://dp2-prd-core-api.azurewebsites.net/api/public/intiate-chat-by-3rd-party";
         axios.post(apiUrl, formData, {
           headers: {
             "Content-Type": "application/json"
