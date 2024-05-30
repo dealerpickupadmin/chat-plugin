@@ -282,6 +282,7 @@ event.preventDefault();
             if (response.data && response.data === true) {
               // Show confirmation modal on success
               showAlert('Successfully submitted message.', 'success');
+              dpform.remove();
             }
           })
           .catch(error => {
