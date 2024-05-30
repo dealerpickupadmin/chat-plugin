@@ -285,8 +285,7 @@ event.preventDefault();
               // Wait for 3 seconds before removing the form
               setTimeout(() => {
                 dpform.remove();
-              }, 3000);
-              dpform.remove();
+              }, 2000);
             }
           })
           .catch(error => {
