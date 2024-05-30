@@ -282,6 +282,10 @@ event.preventDefault();
             if (response.data && response.data === true) {
               // Show confirmation modal on success
               showAlert('Successfully submitted message.', 'success');
+              // Wait for 3 seconds before removing the form
+              setTimeout(() => {
+                dpform.remove();
+              }, 3000);
               dpform.remove();
             }
           })
