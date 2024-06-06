@@ -89,7 +89,7 @@ function runChatWidgetScript() {
     // Create a form element with Bootstrap classes
     var dpform = document.createElement("form");
     dpform.innerHTML = `
-        <div style="width:450px;maxWidth:450px;">
+        <div style="min-width:450px;max-Width:450px;">
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
@@ -131,7 +131,7 @@ function runChatWidgetScript() {
       <div class="dp-form-group dp-form-check">
         <input type="checkbox" class="dp-form-check-input" id="dpallowTexting">
         <label class="dp-form-check-label" for="allowTexting">Allow Texting</label>
-        <p class="small text-wrap pt-0" id="warningText"></p>
+        <p class="small text-dark text-wrap pt-0" id="warningText"></p>
         
       </div>
       
