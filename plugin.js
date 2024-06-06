@@ -89,7 +89,7 @@ function runChatWidgetScript() {
     // Create a form element with Bootstrap classes
     var dpform = document.createElement("form");
     dpform.innerHTML = `
-        <div style="min-width:250px;max-Width:450px;max-height:550px;overflow:scroll;" class="dpform">
+        <div style="min-width:250px;max-Width:450px;max-height:550px;overflow:scroll;" class=" text-dark">
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
