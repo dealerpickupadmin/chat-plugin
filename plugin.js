@@ -89,7 +89,7 @@ function runChatWidgetScript() {
     // Create a form element with Bootstrap classes
     var dpform = document.createElement("form");
     dpform.innerHTML = `
-        <div style="min-width:250px;max-Width:450px;max-height:550px;overflow:scroll;" class=" text-dark">
+        <div style="min-width:250px;max-Width:450px;max-height:650px;overflow:scroll;" class=" text-dark">
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
@@ -169,9 +169,9 @@ function runChatWidgetScript() {
 
     // Style the form
     dpform.style.position = "fixed";
-    dpform.style.bottom = "50px";
-    dpform.style.right = "50px";
-    dpform.style.padding = "20px";
+    dpform.style.bottom = "10px";
+    dpform.style.right = "10px";
+    dpform.style.padding = "8px";
     dpform.style.backgroundColor = "#fff";
     dpform.style.border = "1px solid #ccc";
     dpform.style.zIndex = "1000";
