@@ -172,7 +172,7 @@ function runChatWidgetScript() {
     dpform.style.bottom = "30px";
     dpform.style.right = "10px";
     dpform.style.padding = "10px";
-    dpform.style.padding-bottom = "35px";
+    dpform.style.paddingBottom = "35px";
     dpform.style.backgroundColor = "#fff";
     dpform.style.border = "1px solid #ccc";
     dpform.style.zIndex = "1000";
