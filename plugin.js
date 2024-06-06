@@ -89,7 +89,7 @@ function runChatWidgetScript() {
     // Create a form element with Bootstrap classes
     var dpform = document.createElement("form");
     dpform.innerHTML = `
-        <div style="min-width:250px;max-Width:450px;max-height:550px;overflow:scroll;">
+        <div style="min-width:250px;max-Width:450px;max-height:550px;overflow:scroll;" class="dpform">
       <div class="form-header">
         <h3><i class="fas fa-comment"></i> Text Us</h3>
       </div>
@@ -114,7 +114,7 @@ function runChatWidgetScript() {
   <div class="dp-form-group dp-row">
       <label for="departmentSelect" class="dp-col-sm-4 col-form-label">* Department:</label>
       <div class="dp-col-sm-8">
-          <select class="form-control" id="departmentSelect" required>
+          <select class="dp-form-control" id="departmentSelect" required>
               <option value="" disabled selected>Select a department</option>
               <!-- Options will be populated by JavaScript -->
           </select>
