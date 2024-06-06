@@ -129,7 +129,7 @@ function runChatWidgetScript() {
         <textarea class="dp-form-control" id="dpmessage" name="message" required rows="3"></textarea>
       </div>
       <div class="dp-form-group dp-form-check">
-        <input type="checkbox" class="dp-form-check-input" id="dpallowTexting">
+        <input type="checkbox" class="dp-form-check-input" id="dpallowTexting"> &nbsp; &nbsp;
         <label class="dp-form-check-label" for="allowTexting">Allow Texting</label>
         <p class="small text-dark text-wrap pt-0" id="warningText"></p>
         
