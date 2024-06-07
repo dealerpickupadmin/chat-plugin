@@ -2064,10 +2064,10 @@
    height: calc(2.875rem + 2px);
  }
  
- /* .dp-form-group {
+  .dp-form-group {
    margin-bottom: 1rem;
  }
-  */
+  
  .dp-form-text {
    display: block;
    margin-top: 0.25rem;
